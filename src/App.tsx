@@ -1,11 +1,17 @@
 import React from "react";
+import styled from "styled-components";
 import Movies from "./components/Movies";
+
+const SWrapper = styled.div`
+  background-color: #141414;
+  height: 100vh;
+`;
 
 function App() {
   return (
-    <div className="App">
+    <SWrapper>
       <Movies />
-    </div>
+    </SWrapper>
   );
 }
 

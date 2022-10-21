@@ -5,6 +5,7 @@ const movies = [
     category: "Comedy",
     likes: 4,
     dislikes: 1,
+    url: "https://www.ecranlarge.com/uploads/image/001/022/ocean-s-eight-photo-1022741.jpg",
   },
   {
     id: "2",
@@ -12,6 +13,7 @@ const movies = [
     category: "Comedy",
     likes: 2,
     dislikes: 0,
+    url: "http://images.fan-de-cinema.com/affiches/large/b7/164283.jpg",
   },
   {
     id: "3",
@@ -19,6 +21,7 @@ const movies = [
     category: "Animation",
     likes: 3,
     dislikes: 1,
+    url: "https://www.ecranlarge.com/uploads/image/001/172/les-indestructibles-affiche-1172798.jpg",
   },
   {
     id: "4",
@@ -26,6 +29,7 @@ const movies = [
     category: "Thriller",
     likes: 6,
     dislikes: 6,
+    url: "https://www.ecranlarge.com/uploads/image/001/016/sans-un-bruit-affiche-francaise-1016471.jpg",
   },
   {
     id: "5",
@@ -33,6 +37,7 @@ const movies = [
     category: "Drame",
     likes: 16,
     dislikes: 2,
+    url: "https://www.ecranlarge.com/uploads/image/001/049/creed-ii-affiche-francaise-1049850.jpg",
   },
   {
     id: "6",
@@ -40,6 +45,7 @@ const movies = [
     category: "Thriller",
     likes: 11,
     dislikes: 3,
+    url: "https://www.ecranlarge.com/uploads/image/001/121/7p8x4u3o3p1jzmbqny3zaloby3m-861.jpg",
   },
   {
     id: "7",
@@ -47,6 +53,7 @@ const movies = [
     category: "Thriller",
     likes: 12333,
     dislikes: 32,
+    url: "https://www.ecranlarge.com/uploads/image/001/121/7p8x4u3o3p1jzmbqny3zaloby3m-861.jpg",
   },
   {
     id: "8",
@@ -54,6 +61,7 @@ const movies = [
     category: "Thriller",
     likes: 2,
     dislikes: 1,
+    url: "https://www.ecranlarge.com/uploads/image/001/121/mohx8jgzideamlj1cqdzclyhmry-823.jpg",
   },
   {
     id: "9",
@@ -61,6 +69,7 @@ const movies = [
     category: "Thriller",
     likes: 2,
     dislikes: 1,
+    url: "https://www.ecranlarge.com/uploads/image/001/164/inception-affiche-francaise-1164840.png",
   },
   {
     id: "10",
@@ -68,6 +77,7 @@ const movies = [
     category: "Thriller",
     likes: 22,
     dislikes: 12,
+    url: "https://www.ecranlarge.com/uploads/image/001/148/7xkj1acu40bjzlhvprilwjfvw7-555.jpg",
   },
 ];
 
