@@ -57,7 +57,12 @@ function Movies() {
     <SWrapper>
       <SMoviesContainer>
         {displayedMovies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie}></MovieCard>
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            movies={movies}
+            setMovies={setMovies}
+          ></MovieCard>
         ))}
       </SMoviesContainer>
 

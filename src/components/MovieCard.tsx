@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { Movie } from "./Movies";
+
 import Chip from "@mui/material/Chip";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
+import CloseIcon from "@mui/icons-material/Close";
+import Badge from "@mui/material/Badge";
 
 const SCategory = styled.h3`
   font-weight: normal;
@@ -34,6 +37,10 @@ const SPoster = styled.img`
   object-fit: cover;
   max-width: 200px;
   height: 260px;
+  transition: 0.2s ease-in-out;
+  :hover {
+    transform: scale(1.1);
+  }
 `;
 
 const SWrapper = styled.div`
@@ -47,32 +54,64 @@ const SWrapper = styled.div`
 
 interface MovieProps {
   movie: Movie;
+  movies: Movie[];
+  setMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
 }
 
-function MovieCard({ movie }: MovieProps) {
-  const handleClick = () => {
-    console.info("You clicked the Chip.");
+function MovieCard({ movie, movies, setMovies }: MovieProps) {
+  const likeOrDislike = (myMovie: Movie, isLike: boolean) => {
+    const moviesAfterLikeOrDislike = movies.map((currMovie) => {
+      if (currMovie.id === myMovie.id)
+        return {
+          ...currMovie,
+          likes: isLike ? currMovie.likes + 1 : currMovie.likes,
+          dislikes: isLike ? currMovie.dislikes : currMovie.dislikes + 1,
+        };
+      return currMovie;
+    });
+
+    setMovies(moviesAfterLikeOrDislike);
   };
+
+  const removeMovie = () => {
+    const moviesAfterRemove = movies.filter(
+      (currMovie) => currMovie.id !== movie.id
+    );
+
+    setMovies(moviesAfterRemove);
+  };
+
   return (
-    <SWrapper>
-      <STitle>{movie.title}</STitle>
-      <SCategory>{movie.category}</SCategory>
-      <SPoster src={movie.url} />
-      <div style={{ display: "flex", marginTop: "10px" }}>
-        <SChip
-          icon={<ThumbUpOffAltIcon />}
-          label={`${movie.likes}`}
-          onClick={handleClick}
-          color="info"
-        ></SChip>
-        <SChip
-          icon={<ThumbDownOffAltIcon />}
-          label={`${movie.dislikes}`}
-          onClick={handleClick}
-          color="info"
-        ></SChip>
-      </div>
-    </SWrapper>
+    <Badge
+      badgeContent={
+        <CloseIcon
+          sx={{ fontSize: 15, cursor: "pointer" }}
+          onClick={removeMovie}
+        />
+      }
+      color="info"
+      style={{ marginRight: "15px", marginTop: "45px" }}
+    >
+      <SWrapper>
+        <STitle>{movie.title}</STitle>
+        <SCategory>{movie.category}</SCategory>
+        {movie.url ? <SPoster src={movie.url} /> : null}
+        <div style={{ display: "flex", marginTop: "20px" }}>
+          <SChip
+            icon={<ThumbUpOffAltIcon />}
+            label={`${movie.likes}`}
+            onClick={() => likeOrDislike(movie, true)}
+            color="info"
+          ></SChip>
+          <SChip
+            icon={<ThumbDownOffAltIcon />}
+            label={`${movie.dislikes}`}
+            onClick={() => likeOrDislike(movie, false)}
+            color="info"
+          ></SChip>
+        </div>
+      </SWrapper>
+    </Badge>
   );
 }
 
