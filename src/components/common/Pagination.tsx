@@ -1,6 +1,14 @@
 import * as React from "react";
 import TablePagination from "@mui/material/TablePagination";
+import styled from "styled-components";
 
+const STablePagination = styled(TablePagination)`
+  width: 100%;
+  & .MuiTablePagination-toolbar,
+  .MuiTablePagination-selectIcon {
+    color: #e5e5e5;
+  }
+`;
 interface PaginationProps {
   nbElement: number;
   page: number;
@@ -24,15 +32,20 @@ function Pagination(props: PaginationProps) {
     props.setPage(0);
   };
   return (
-    <TablePagination
-      component="div"
-      count={props.nbElement}
-      page={props.page}
-      onPageChange={handleChangePage}
-      rowsPerPage={props.rowsPerPage}
-      onRowsPerPageChange={handleChangeRowsPerPage}
-      rowsPerPageOptions={[4, 8, 12]}
-    />
+    <table style={{ marginBottom: "150px" }}>
+      <tbody>
+        <tr>
+          <STablePagination
+            count={props.nbElement}
+            page={props.page}
+            onPageChange={handleChangePage}
+            rowsPerPage={props.rowsPerPage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+            rowsPerPageOptions={[4, 8, 12]}
+          />
+        </tr>
+      </tbody>
+    </table>
   );
 }
 

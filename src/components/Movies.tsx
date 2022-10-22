@@ -8,6 +8,7 @@ import MovieCard from "./MovieCard";
 const SMoviesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 50px;
 `;
 
 const SWrapper = styled.div`
@@ -55,6 +56,11 @@ function Movies() {
 
   return (
     <SWrapper>
+      <Categories
+        categories={categories}
+        currCategory={currentCategory}
+        setCurrentCategory={setCurrentCategory}
+      />
       <SMoviesContainer>
         {displayedMovies.map((movie) => (
           <MovieCard
@@ -66,11 +72,6 @@ function Movies() {
         ))}
       </SMoviesContainer>
 
-      <Categories
-        categories={categories}
-        currCategory={currentCategory}
-        setCurrentCategory={setCurrentCategory}
-      />
       <Pagination
         nbElement={moviesByCategory.length}
         page={currentPage}
