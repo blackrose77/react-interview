@@ -22,7 +22,7 @@ const SWrapper = styled.div`
 function App() {
   return (
     <SWrapper>
-      <STitle>Welcome to the movies visualizer !</STitle>
+      <STitle>Welcome to the movie library !</STitle>
       <Movies />
     </SWrapper>
   );
